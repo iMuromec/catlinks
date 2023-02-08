@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+HTML {
+  height: 100%;
+}
+
+body {
+  background-color: #f3f3ef;
+}
+
+.add-new-link-button {
+  background-color: #1877f2;
+  border: none;
+  border-radius: 28px;
+  color: #fff;
+  flex-grow: 1;
+  font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  height: 53px;
+  line-height: 20px;
+  min-width: 260px;
+  padding: 0 16px 0 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.add-new-link-button:hover {
+  background-color: #e4e6eb;
+  transition: 0.3s;
+}
+
+.archived {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.success-color {
+  color: #4ade80;
+}
