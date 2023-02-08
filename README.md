@@ -1,4 +1,4 @@
-![Cat Links - всё в одной ссылке](http://localhost:3000/_next/image?url=%2Fstatic%2Flogo.png&w=150&q=75)
+![Cat Links - всё в одной ссылке](https://catlinks.vercel.app/_next/image?url=%2Fstatic%2Flogo.png&w=150&q=75)
 
 ## Cat Links - всё в одной ссылке
 
@@ -31,7 +31,7 @@
 
 #
 
-![Лендинг пользователя](http://localhost:3000/_next/image?url=%2Fstatic%2Fkristina-1.png&w=250&q=75)
+![Лендинг пользователя](https://catlinks.vercel.app/_next/image?url=%2Fstatic%2Fkristina-1.png&w=250&q=75)
 
 <br />
 <br />
@@ -40,4 +40,4 @@
 
 #
 
-![Личный кабинет](http://localhost:3000/_next/image?url=%2Fstatic%2Fandrey-tablet-1.png&w=350&q=75)
+![Личный кабинет](https://catlinks.vercel.app/_next/image?url=%2Fstatic%2Fandrey-tablet-1.png&w=350&q=75)
