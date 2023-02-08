@@ -29,13 +29,12 @@ const Header: React.FC = () => {
             {loading || unauthorized || loggedOut ? (
               <div className="py-1">
                 <Menu.Item>
-                  <Link
-                    href="/edit"
-                    onClick={() => signIn()}
-                    className={"text-gray-700 block px-4 py-2 text-sm"}
+                  <div
+                    onClick={() => signIn(null, { callbackUrl: "/edit" })}
+                    className="text-gray-700 block px-4 py-2 text-sm cursor-pointer"
                   >
                     Создать страницу / Войти
-                  </Link>
+                  </div>
                 </Menu.Item>
               </div>
             ) : (
