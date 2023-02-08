@@ -46,7 +46,7 @@ function html(params: { url: string; host: string; theme: any }) {
     style="background: ${color.mainBackground}; max-width: 600px; margin: auto; border-radius: 10px;">
     <tr>
       <td align="center"
-        style="padding: 10px 0px;"><img src="https://${host}/static/logo-email.png" width: "130px"/>
+        style="padding: 10px 0px;"><img src="https://${host}/static/logo-email.png" style="width: 90px;" width="90px" />
       </td>
       </tr>
     <tr>
