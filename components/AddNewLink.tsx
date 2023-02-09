@@ -1,17 +1,22 @@
+import { createId } from "@paralleldrive/cuid2";
+
 export default function AddNewLink({ links, setLinks }) {
   const handleAddNewLink = async () => {
-    const res = await fetch("/api/links", {
+    const newLink = {
+      id: createId(),
+      title: "",
+      url: "",
+      active: true,
+    };
+    setLinks([newLink, ...links]);
+
+    await fetch("/api/links", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        title: "",
-        url: "",
-      }),
+      body: JSON.stringify(newLink),
     });
-    const newLink = await res.json();
-    setLinks([newLink, ...links]);
   };
 
   return (

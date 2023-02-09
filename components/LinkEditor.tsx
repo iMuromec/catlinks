@@ -28,15 +28,12 @@ const LinkEditor = ({ link, links, setLinks }) => {
   };
 
   const handleDeleteLink = async () => {
-    const res = await fetch(`/api/links/${link.id}`, {
+    setShowDeleteConfirm(false);
+    setLinks([...links.filter((l) => l.id != link.id)]);
+
+    await fetch(`/api/links/${link.id}`, {
       method: "DELETE",
     });
-
-    if (res.ok) {
-      setLinks([...links.filter((l) => l.id != link.id)]);
-    }
-
-    setShowDeleteConfirm(false);
   };
 
   const handleSaveLink = async () => {
