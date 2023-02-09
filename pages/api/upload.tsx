@@ -75,8 +75,9 @@ export default async function handle(
           }
         });
       } catch (error) {
-        console.log(error);
-        res.status(500).send({ message: "Server error" });
+        throw new Error(error);
+        // console.log(error);
+        // res.status(500).send({ message: "Server error" });
       } finally {
         await prisma.$disconnect();
       }
