@@ -1,38 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { join } from "path";
-import formidable from "formidable";
+import { extname } from "node:path";
 import { getSession } from "next-auth/react";
+import { createId } from "@paralleldrive/cuid2";
 import prisma from "@lib/prisma";
-import { unlink } from "node:fs";
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
-async function deleteImageFile(session) {
-  const user = await prisma.user.findFirst({
-    where: { email: session.user.email },
-    select: {
-      image: true,
-    },
-  });
-
-  if (!user.image) return;
-
-  const fullImagePath = join(
-    process.env.ROOT_DIR || process.cwd(),
-    process.env.PUBLIC_DIR || "",
-    user.image
-  );
-
-  unlink(fullImagePath, (err) => {
-    if (err) {
-      console.error("Image was not deleted", err);
-    }
-  });
-}
+import { GetUploadUrl, DeleteFileFromCloud } from "@lib/cloudUpload";
 
 export default async function handle(
   req: NextApiRequest,
@@ -40,58 +11,36 @@ export default async function handle(
 ) {
   const session = await getSession({ req });
   if (session) {
+    const { email } = session.user;
+
     if (req.method === "POST") {
       try {
-        let image = "";
-        const form = formidable({
-          keepExtensions: true,
-          uploadDir: join(
-            process.env.ROOT_DIR || process.cwd(),
-            process.env.PUBLIC_DIR || "",
-            "images"
-          ),
-          maxFileSize: 10 * 1024 * 1024,
-        });
+        const { name, type, currentName } = req.body;
 
-        form.parse(req, async (err, fields, files) => {
-          if (err) {
-            console.log(err);
-          }
+        const fileExt = extname(name);
+        const newFileName = `${createId()}${fileExt}`;
+        const signedUrl = await GetUploadUrl(newFileName, type);
 
-          let filename = Array.isArray(files.file)
-            ? files.file.map((f) => f.newFilename)
-            : null;
+        DeleteFileFromCloud(currentName);
+        DatabaseImageUpdate(
+          email,
+          `https://${process.env.OBJ_BUCKET_NAME}.storage.yandexcloud.net/${newFileName}`
+        );
 
-          if (filename) {
-            image = `/images/${filename[0]}`;
-            deleteImageFile(session);
-
-            const user = await prisma.user.update({
-              where: { email: session.user.email },
-              data: { image },
-            });
-            res.status(201).json({ image: user.image });
-          } else {
-            throw new Error("No Image");
-          }
-        });
+        res.status(200).json({ url: signedUrl });
       } catch (error) {
         throw new Error(error);
-        // console.log(error);
-        // res.status(500).send({ message: "Server error" });
       } finally {
         await prisma.$disconnect();
       }
     } else if (req.method === "DELETE") {
       try {
-        deleteImageFile(session);
+        const { name } = req.body;
 
-        const user = await prisma.user.update({
-          where: { email: session.user.email },
-          data: { image: "" },
-        });
+        DeleteFileFromCloud(name);
+        DatabaseImageUpdate(email, "");
 
-        res.status(200).json({ image: user.image });
+        res.status(200).json({ image: "" });
       } catch (error) {
         console.log(error);
         res.status(500).send({ message: "Server error" });
@@ -107,3 +56,18 @@ export default async function handle(
     res.status(401).send({ message: "Unauthorized" });
   }
 }
+
+async function DatabaseImageUpdate(email, image) {
+  prisma.user.update({
+    where: { email },
+    data: { image },
+  });
+}
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "8mb",
+    },
+  },
+};

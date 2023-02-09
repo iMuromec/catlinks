@@ -12,25 +12,25 @@ const ImageUpload = ({ user, setUser, setShowSaveMessage }) => {
     const previewUrl = URL.createObjectURL(file);
     setPreviewUrl(previewUrl);
 
-    const formData = new FormData();
-    formData.append("file", file);
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      body: JSON.stringify({ name: file.name, type: file.type }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
 
-    try {
-      const res = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
-      if (res.ok) {
-        setShowSaveMessage(true);
-        const data = await res.json();
-        setUser({
-          ...user,
-          image: data.image,
-        });
-      }
-    } catch (err) {
-      console.error(err);
-    }
+    const data = await res.json();
+
+    await fetch(data.url, { method: "PUT", body: file });
+
+    setShowSaveMessage(true);
+
+    // setUser({
+    //   ...user,
+    //   image: data.image,
+    // });
   };
 
   const handleDelete = async () => {
