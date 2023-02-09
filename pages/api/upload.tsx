@@ -23,7 +23,7 @@ async function deleteImageFile(session) {
 
   const fullImagePath = join(
     process.env.ROOT_DIR || process.cwd(),
-    `./public`,
+    process.env.PUBLIC_DIR || "",
     user.image
   );
 
@@ -47,7 +47,8 @@ export default async function handle(
           keepExtensions: true,
           uploadDir: join(
             process.env.ROOT_DIR || process.cwd(),
-            `./public/images`
+            process.env.PUBLIC_DIR || "",
+            "images"
           ),
           maxFileSize: 10 * 1024 * 1024,
         });
