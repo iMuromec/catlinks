@@ -13,6 +13,7 @@ const LinkEditor = ({ link, links, setLinks }) => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   const handleArchiveLink = async (e) => {
+    setActive(!active);
     const res = await fetch(`/api/links/${link.id}`, {
       method: "PUT",
       headers: {
@@ -22,7 +23,6 @@ const LinkEditor = ({ link, links, setLinks }) => {
     });
 
     if (res.ok) {
-      setActive(!active);
       setShowSaveMessage(true);
     }
   };
