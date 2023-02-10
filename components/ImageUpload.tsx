@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -13,6 +12,7 @@ const ImageUpload = ({ user, setUser, setShowSaveMessage }) => {
     const previewUrl = URL.createObjectURL(file);
     setPreviewUrl(previewUrl);
 
+    // get signedUrl
     const res = await fetch("/api/upload", {
       method: "POST",
       body: JSON.stringify({ name: file.name, type: file.type }),
@@ -22,9 +22,10 @@ const ImageUpload = ({ user, setUser, setShowSaveMessage }) => {
       },
     });
 
-    const data = await res.json();
+    const signedUrl = await res.json();
 
-    const storageRes = await fetch(data.url, {
+    // upload file from client
+    const storageRes = await fetch(signedUrl.url, {
       method: "PUT",
       headers: {
         "Content-Type": file.type,
