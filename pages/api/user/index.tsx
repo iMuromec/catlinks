@@ -28,6 +28,11 @@ export default async function handle(
             },
           },
         });
+
+        if (user.image && !user.image.includes("http")) {
+          user.image = process.env.OBJ_BUCKET_URL + user.image;
+        }
+
         res.status(200).json(user);
       } catch (error) {
         res.status(500).send({ message: "Server error" });
@@ -36,8 +41,8 @@ export default async function handle(
       }
     } else if (req.method === "PUT") {
       try {
-        const { name, description, image, url } = req.body;
-        const data = { name, description, image, url };
+        const { name, description, url } = req.body;
+        const data = { name, description, url };
 
         const regexAllowedChar = /^[a-zA-Z0-9_-]{3,}$/;
         if (!regexAllowedChar.test(url)) {

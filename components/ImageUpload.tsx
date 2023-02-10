@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -23,14 +24,18 @@ const ImageUpload = ({ user, setUser, setShowSaveMessage }) => {
 
     const data = await res.json();
 
-    await fetch(data.url, { method: "PUT", body: file });
+    const storageRes = await fetch(data.url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": file.type,
+        "Access-Control-Request-Method": "PUT",
+      },
+      body: file,
+    });
 
-    setShowSaveMessage(true);
-
-    // setUser({
-    //   ...user,
-    //   image: data.image,
-    // });
+    if (storageRes.ok) {
+      setShowSaveMessage(true);
+    }
   };
 
   const handleDelete = async () => {

@@ -30,8 +30,8 @@ const UserContextProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const response = await fetch("/api/user");
-        const data = await response.json();
-        setUser(data);
+        const user = await response.json();
+        setUser(user);
       } catch (error) {
         setError(error);
       }

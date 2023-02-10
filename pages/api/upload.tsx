@@ -15,17 +15,14 @@ export default async function handle(
 
     if (req.method === "POST") {
       try {
-        const { name, type, currentName } = req.body;
+        const { name, type } = req.body;
 
         const fileExt = extname(name);
         const newFileName = `${createId()}${fileExt}`;
         const signedUrl = await GetUploadUrl(newFileName, type);
 
-        // DeleteFileFromCloud(currentName);
-        DatabaseImageUpdate(
-          email,
-          `https://${process.env.OBJ_BUCKET_NAME}.storage.yandexcloud.net/${newFileName}`
-        );
+        DeleteFileFromCloud(email);
+        UpdateUserImage(email, newFileName);
 
         res.status(200).json({ url: signedUrl });
       } catch (error) {
@@ -35,10 +32,8 @@ export default async function handle(
       }
     } else if (req.method === "DELETE") {
       try {
-        const { name } = req.body;
-
-        DeleteFileFromCloud(name);
-        DatabaseImageUpdate(email, "");
+        DeleteFileFromCloud(email);
+        UpdateUserImage(email, "");
 
         res.status(200).json({ image: "" });
       } catch (error) {
@@ -57,8 +52,8 @@ export default async function handle(
   }
 }
 
-async function DatabaseImageUpdate(email, image) {
-  prisma.user.update({
+async function UpdateUserImage(email, image) {
+  await prisma.user.update({
     where: { email },
     data: { image },
   });

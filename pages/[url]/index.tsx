@@ -38,6 +38,10 @@ export async function getServerSideProps({ params }) {
     };
   }
 
+  if (user.image && !user.image.includes("http")) {
+    user.image = process.env.OBJ_BUCKET_URL + user.image;
+  }
+
   return {
     props: { user: JSON.parse(JSON.stringify(user)) },
   };

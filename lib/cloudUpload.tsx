@@ -4,6 +4,7 @@ import {
   DeleteObjectCommand,
 } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import prisma from "@lib/prisma";
 
 const s3Client = new S3Client({
   region: "ru-central1",
@@ -29,11 +30,20 @@ export async function GetUploadUrl(filename, filetype) {
   return signedUrl;
 }
 
-export async function DeleteFileFromCloud(filename) {
+export async function DeleteFileFromCloud(email) {
+  const user = await prisma.user.findFirst({
+    where: { email },
+    select: {
+      image: true,
+    },
+  });
+
+  if (!user.image) return;
+
   await s3Client.send(
     new DeleteObjectCommand({
       Bucket: process.env.OBJ_BUCKET_NAME,
-      Key: filename,
+      Key: user.image,
     })
   );
 }
