@@ -18,6 +18,7 @@
 - [Node.js]
 - [TypeScript]
 - [PostgreSQL]
+- [Yandex Cloud]
 
 <br />
 
