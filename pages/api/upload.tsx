@@ -21,7 +21,7 @@ export default async function handle(
         const newFileName = `${createId()}${fileExt}`;
         const signedUrl = await GetUploadUrl(newFileName, type);
 
-        DeleteFileFromCloud(currentName);
+        // DeleteFileFromCloud(currentName);
         DatabaseImageUpdate(
           email,
           `https://${process.env.OBJ_BUCKET_NAME}.storage.yandexcloud.net/${newFileName}`
