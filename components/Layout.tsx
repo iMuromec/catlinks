@@ -10,7 +10,9 @@ const Layout: React.FC<Props> = (props) => {
   return (
     <div className="grid grid-cols-1 min-h-screen">
       <Header />
-      <div className="layout overflow-hidden">{props.children}</div>
+      <div className="layout overflow-hidden grid-row-start: auto; min-h-screen">
+        {props.children}
+      </div>
       <Footer />
     </div>
   );
