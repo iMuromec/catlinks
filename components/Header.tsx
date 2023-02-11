@@ -14,7 +14,10 @@ const Header: React.FC = () => {
   return (
     <div className="flex flex-row items-center h-9 justify-end mt-2 mr-4">
       <Menu as="div" className="flex text-left justify-end">
-        <Menu.Button className="inline-flex w-9 h-9 justify-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none"></Menu.Button>
+        <Menu.Button
+          name="Меню"
+          className="inline-flex w-9 h-9 justify-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none"
+        ></Menu.Button>
 
         <Transition
           as={Fragment}

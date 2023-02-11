@@ -22,6 +22,7 @@ function Home() {
             TikTok, Twitter, YouTube и других социальных сетях.
           </p>
           <button
+            name="Создать страницу"
             onClick={() => signIn(null, { callbackUrl: "/edit" })}
             className="mt-8 px-20 py-3 border gap-3 font-semibold bg-blue-500 text-white rounded-lg"
           >

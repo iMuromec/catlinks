@@ -3,7 +3,7 @@ import YandexMetrika from "@components/YandexMetrika";
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="ru">
       <Head>
         <link rel="shortcut icon" href="/favicons/favicon.ico" />
         <link

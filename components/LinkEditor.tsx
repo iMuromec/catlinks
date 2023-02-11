@@ -91,6 +91,7 @@ const LinkEditor = ({ link, links, setLinks }) => {
         </label>
 
         <button
+          name="Удалить ссылку"
           className=" text-red-400 hover:text-red-800 flex items-end"
           onClick={() => setShowDeleteConfirm(true)}
         >

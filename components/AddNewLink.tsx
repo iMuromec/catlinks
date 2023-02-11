@@ -22,6 +22,7 @@ export default function AddNewLink({ links, setLinks }) {
   return (
     <div className="mt-5 block">
       <button
+        name="Добавить ссылку"
         className="bg-blue-500 add-new-link-button hover:bg-blue-700 text-white py-2 px-4"
         onClick={handleAddNewLink}
       >
