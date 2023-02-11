@@ -62,13 +62,14 @@ const Header: React.FC = () => {
                 </Menu.Item>
 
                 <Menu.Item>
-                  <a
-                    href="/"
+                  <div
                     onClick={() => signOut({ callbackUrl: "/" })}
-                    className={"text-gray-700 block px-4 py-2 text-sm"}
+                    className={
+                      "text-gray-700 block px-4 py-2 text-sm cursor-pointer"
+                    }
                   >
                     Выйти
-                  </a>
+                  </div>
                 </Menu.Item>
               </div>
             )}
