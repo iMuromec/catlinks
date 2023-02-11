@@ -24,10 +24,10 @@
 
 ### Лендинг пользователя:
 
-<img alt="Лендинг пользователя" src="https://catlinks.vercel.app/_next/image?url=%2Fstatic%2Fkristina-1.png&w=750&q=75" width="300"/>
+<img alt="Лендинг пользователя" src="https://catlinks.ru/_next/image?url=%2Fstatic%2Fkristina-1.png&w=750&q=75" width="300"/>
 
 <br />
 
 ### Личный кабинет:
 
-<img alt="Личный кабинет" src="https://catlinks.vercel.app/_next/image?url=%2Fstatic%2Fandrey-tablet-1.png&w=1080&q=75" width="400"/>
+<img alt="Личный кабинет" src="https://catlinks.ru/_next/image?url=%2Fstatic%2Fandrey-tablet-1.png&w=1080&q=75" width="400"/>
