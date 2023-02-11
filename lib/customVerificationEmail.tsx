@@ -46,12 +46,12 @@ function html(params: { url: string; host: string; theme: any }) {
     style="background: ${color.mainBackground}; max-width: 600px; margin: auto; border-radius: 10px;">
     <tr>
       <td align="center"
-        style="padding: 10px 0px;"><img src="https://${host}/static/logo-email.png" style="width: 90px;" width="90px" />
+        style="padding-top: 10px"><img src="https://${host}/static/logo-email.png" style="width: 90px;" width="90px" />
       </td>
       </tr>
     <tr>
       <td align="center"
-        style="padding: 10px 0px; font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: ${color.text};">
+        style="padding-bottom: 10px; font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: ${color.text};">
         Вход на <strong>${escapedHost}</strong>
       </td>
     </tr>
@@ -61,7 +61,7 @@ function html(params: { url: string; host: string; theme: any }) {
           <tr>
             <td align="center" style="border-radius: 5px;" bgcolor="${color.buttonBackground}"><a href="${url}"
                 target="_blank"
-                style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: ${color.buttonText}; text-decoration: none; border-radius: 5px; padding: 10px 20px; border: 1px solid ${color.buttonBorder}; display: inline-block; font-weight: bold;">Войти</a></td>
+                style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: ${color.buttonText}; text-decoration: none; border-radius: 5px; padding:10px 0 20px 0; border: 1px solid ${color.buttonBorder}; display: inline-block; font-weight: bold;">Перейти в личный кабинет</a></td>
           </tr>
         </table>
       </td>
