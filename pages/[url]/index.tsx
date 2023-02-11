@@ -12,6 +12,7 @@ export async function getServerSideProps({ params }) {
     where: {
       url: {
         equals: url,
+        mode: "insensitive",
       },
     },
     include: {
