@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import YandexMetrika from "@components/YandexMetrika";
 
 export default function Document() {
   return (
@@ -27,6 +28,13 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <YandexMetrika
+          yid={"92432491"}
+          clickmap={true}
+          trackLinks={true}
+          accurateTrackBounce={true}
+          webvisor={true}
+        />
       </body>
     </Html>
   );
