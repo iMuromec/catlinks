@@ -51,17 +51,16 @@ function html(params: { url: string; host: string; theme: any }) {
       </tr>
     <tr>
       <td align="center"
-        style="padding-bottom: 10px; font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: ${color.text};">
-        Вход на <strong>${escapedHost}</strong>
+        style="padding-bottom: 10px; font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: ${color.text};"><strong>${escapedHost}</strong>
       </td>
     </tr>
     <tr>
-      <td align="center" style="padding: 20px 0;">
+      <td align="center" style="padding:10px 0 20px 0;">
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td align="center" style="border-radius: 5px;" bgcolor="${color.buttonBackground}"><a href="${url}"
                 target="_blank"
-                style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: ${color.buttonText}; text-decoration: none; border-radius: 5px; padding:10px 0 20px 0; border: 1px solid ${color.buttonBorder}; display: inline-block; font-weight: bold;">Перейти в личный кабинет</a></td>
+                style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: ${color.buttonText}; text-decoration: none; border-radius: 5px; padding:10px 20px 10px 20px; border: 1px solid ${color.buttonBorder}; display: inline-block; font-weight: bold;">Перейти в личный кабинет</a></td>
           </tr>
         </table>
       </td>
