@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 interface UserInfoStaticProps {
   userImage?: string;
@@ -14,7 +14,7 @@ const UserInfoStatic = ({
     <div className="flex flex-col items-center mb-5 max-w-[500px] w-full text-center">
       <>
         {userImage && (
-          <Image
+          <ImageWithFallback
             width={128}
             height={128}
             src={userImage}

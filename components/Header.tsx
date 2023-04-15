@@ -1,9 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { signOut, signIn, useSession } from "next-auth/react";
 import { Menu, Transition } from "@headlessui/react";
+
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -20,8 +21,8 @@ const Header: React.FC = () => {
           className="inline-flex w-9 h-9 justify-center rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none"
         >
           {status === "authenticated" && session.user?.image ? (
-            <Image
-              src={session.user.image}
+            <ImageWithFallback
+              src={session.user?.image}
               width={36}
               height={36}
               alt={session.user?.name}

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const ImageUpload = ({ userImage, setUserImage, setShowSaveMessage }) => {
   const handleChange = async (e) => {
@@ -57,7 +57,7 @@ const ImageUpload = ({ userImage, setUserImage, setShowSaveMessage }) => {
         className="w-32 h-32 rounded-full cursor-pointer flex-row items-center my-2 justify-center mx-auto flex bg-gray-200 hover:bg-gray-300"
       >
         {userImage ? (
-          <Image
+          <ImageWithFallback
             width={128}
             height={128}
             src={userImage}

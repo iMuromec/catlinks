@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
