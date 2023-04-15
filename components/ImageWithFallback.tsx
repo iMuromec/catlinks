@@ -6,7 +6,7 @@ interface ImageWithFallbackProps extends ImageProps {
 }
 
 export default function ImageWithFallback({
-  fallback = "/images/fallback.png",
+  fallback = "/static/fallback.png",
   alt,
   src,
   ...props
