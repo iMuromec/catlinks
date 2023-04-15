@@ -1,14 +1,12 @@
 import Image, { ImageProps } from "next/image";
 import { useEffect, useState } from "react";
 
-import fallbackImage from "../public/images/fallback.png";
-
 interface ImageWithFallbackProps extends ImageProps {
   fallback?: ImageProps["src"];
 }
 
 export default function ImageWithFallback({
-  fallback = fallbackImage,
+  fallback = "/images/fallback.png",
   alt,
   src,
   ...props
@@ -32,7 +30,7 @@ export default function ImageWithFallback({
     <Image
       alt={alt || ""}
       onError={setError}
-      src={error ? fallbackImage : src}
+      src={error ? fallback : src}
       {...props}
     />
   );
