@@ -1,7 +1,7 @@
 import Image, { ImageProps } from "next/image";
 import { useEffect, useState } from "react";
 
-import fallbackImage from "@/public/images/fallback.png";
+import fallbackImage from "../public/images/fallback.png";
 
 interface ImageWithFallbackProps extends ImageProps {
   fallback?: ImageProps["src"];
