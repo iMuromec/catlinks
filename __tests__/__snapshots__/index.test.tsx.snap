@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <div
+    class="flex flex-col sm:flex-row justify-center sm:mt-0 px-8 sm:px-18 "
+  >
+    <div
+      class="w-full grid grid-cols px-2 mt-3 pb-16 justify-items-center content-center "
+    >
+      <div
+        class="mx-auto pb-2 w-36"
+      >
+        <img
+          alt="Cat Links"
+          data-nimg="1"
+          decoding="async"
+          height="759"
+          loading="lazy"
+          src="/_next/image?url=%2Fstatic%2Flogo.png&w=1200&q=75"
+          srcset="/_next/image?url=%2Fstatic%2Flogo.png&w=640&q=75 1x, /_next/image?url=%2Fstatic%2Flogo.png&w=1200&q=75 2x"
+          style="color: transparent;"
+          width="565"
+        />
+      </div>
+      <h1
+        class="text-4xl text-gray-900 text-center font-bold"
+      >
+        Всё в одной ссылке
+      </h1>
+      <p
+        class="mt-6 text-lg text-gray-600 text-center"
+      >
+        Одна ссылка, которая объединяет все ваши профили в Instagram, TikTok, Twitter, YouTube и других социальных сетях.
+      </p>
+      <button
+        class="mt-8 px-20 py-3 border gap-3 font-semibold bg-blue-500 text-white rounded-lg"
+        name="Создать страницу"
+      >
+        Создать
+      </button>
+    </div>
+    <div
+      class="w-full grid grid-cols-2 sm:mt-12 gap-3 px-2 justify-items-center content-center"
+    >
+      <div
+        class="max-w-[250px] grid grid-cols-1 justify-items-center content-center"
+      >
+        <img
+          alt="phone"
+          data-nimg="1"
+          decoding="async"
+          height="684"
+          loading="lazy"
+          src="/_next/image?url=%2Fstatic%2Fkristina-1.png&w=750&q=75"
+          srcset="/_next/image?url=%2Fstatic%2Fkristina-1.png&w=384&q=75 1x, /_next/image?url=%2Fstatic%2Fkristina-1.png&w=750&q=75 2x"
+          style="color: transparent;"
+          width="350"
+        />
+      </div>
+      <div
+        class="max-w-[400px]"
+      >
+        <img
+          alt="tablet"
+          data-nimg="1"
+          decoding="async"
+          height="688"
+          loading="lazy"
+          src="/_next/image?url=%2Fstatic%2Fandrey-tablet-1.png&w=1080&q=75"
+          srcset="/_next/image?url=%2Fstatic%2Fandrey-tablet-1.png&w=640&q=75 1x, /_next/image?url=%2Fstatic%2Fandrey-tablet-1.png&w=1080&q=75 2x"
+          style="color: transparent;"
+          width="500"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
