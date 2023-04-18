@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders edit page unchanged 1`] = `
+<div>
+  <div
+    class="flex flex-col items-center max-w-[800px] px-3 mx-auto"
+  >
+    <div
+      class="flex flex-col items-center mb-5 max-w-[500px] w-full text-center"
+    >
+      <form>
+        <label
+          class="w-32 h-32 rounded-full cursor-pointer flex-row items-center my-2 justify-center mx-auto flex bg-gray-200 hover:bg-gray-300"
+          for="file"
+        >
+          Добавить фото
+        </label>
+        <div
+          class="flex flex-row gap-1"
+        >
+          <label
+            class="underline decoration-dashed cursor-pointer"
+            for="file"
+          >
+            Изменить
+          </label>
+          /
+          <div
+            class="underline decoration-dashed text-gray-500 cursor-pointer "
+          >
+            Удалить
+          </div>
+        </div>
+        <input
+          class="hidden"
+          id="file"
+          type="file"
+        />
+      </form>
+      <div
+        class="w-full mt-5 py-2 flex items-center flex-row"
+      >
+        <div
+          class="text-left bg-transparent w-[150px] py-2 text-gray-900 "
+        >
+          https://catlinks.ru/
+        </div>
+        <input
+          class="border 
+              
+              disabled:bg-slate-50 disabled:text-slate-500  
+               w-full outline-none text-gray-900 bg-white p-2 shadow-sm rounded-lg"
+          disabled=""
+          name="url"
+          type="text"
+          value=""
+        />
+        <div
+          class="w-8 pl-2 cursor-pointer"
+        >
+          <svg
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"
+            />
+          </svg>
+        </div>
+      </div>
+      <a
+        class="text-right self-end underline text-sm flex flex-row gap-1"
+        href="/undefined"
+        target="_blank"
+      >
+        <div>
+          Открыть страницу
+        </div>
+        <div
+          class="w-2 flex flex-row"
+        >
+          <svg
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"
+            />
+          </svg>
+        </div>
+      </a>
+      <div
+        class="w-full mt-1 py-2 underline decoration-dashed cursor-pointer"
+      >
+        Добавить имя
+      </div>
+      <div
+        class="w-full mt-1 py-2 underline decoration-dashed cursor-pointer"
+      >
+        Добавить описание
+      </div>
+    </div>
+    <div
+      class="mt-5 block"
+    >
+      <button
+        class="bg-blue-500 add-new-link-button hover:bg-blue-700 text-white py-2 px-4"
+        name="Добавить ссылку"
+      >
+        Добавить ссылку
+      </button>
+    </div>
+    <div
+      class="mt-5 w-full"
+    />
+  </div>
+</div>
+`;

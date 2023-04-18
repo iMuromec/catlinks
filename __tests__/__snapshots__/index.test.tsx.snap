@@ -12,7 +12,7 @@ exports[`renders homepage unchanged 1`] = `
         class="mx-auto pb-2 w-36"
       >
         <img
-          alt="Cat Links"
+          alt="Котолинкус"
           data-nimg="1"
           decoding="async"
           height="759"
@@ -26,7 +26,7 @@ exports[`renders homepage unchanged 1`] = `
       <h1
         class="text-4xl text-gray-900 text-center font-bold"
       >
-        Всё в одной ссылке
+        Котолинкус — Всё в одной ссылке
       </h1>
       <p
         class="mt-6 text-lg text-gray-600 text-center"
@@ -34,10 +34,15 @@ exports[`renders homepage unchanged 1`] = `
         Одна ссылка, которая объединяет все ваши профили в Instagram, TikTok, Twitter, YouTube и других социальных сетях.
       </p>
       <button
-        class="mt-8 px-20 py-3 border gap-3 font-semibold bg-blue-500 text-white rounded-lg"
+        class="mt-8 border gap-3 font-semibold bg-blue-500 text-white rounded-lg flex relative"
         name="Создать страницу"
       >
-        Создать
+        <a
+          class="px-20 py-3"
+          href="/edit"
+        >
+          Личный кабинет
+        </a>
       </button>
     </div>
     <div
