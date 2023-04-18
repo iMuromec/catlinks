@@ -1,6 +1,6 @@
-<img alt="Cat Links - всё в одной ссылке" src="https://catlinks.ru/_next/image?url=%2Fstatic%2Flogo.png&w=1200&q=75" width="150"/>
+<img alt="Котолинкус - всё в одной ссылке" src="https://catlinks.ru/_next/image?url=%2Fstatic%2Flogo.png&w=1200&q=75" width="150"/>
 
-## Cat Links - всё в одной ссылке
+## Котолинкус - всё в одной ссылке
 
 Одна ссылка, которая объединяет все ваши профили в Instagram, TikTok, Twitter, YouTube, OnlyFans и других социальных сетях.
 

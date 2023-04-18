@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import prisma from "@/lib/prisma";
 import UserInfoStatic from "@/components/UserInfoStatic";
+import { site } from "@/config/site";
 
 export default function UserLinks({ links, image, name, description, title }) {
   return (
@@ -48,7 +49,7 @@ export async function getServerSideProps({ params }) {
     };
   }
 
-  const title = user.name ? `${user.name} — Котолинкус` : "Котолинкус";
+  const title = user.name ? `${user.name} — ${site.name}` : site.name;
 
   const links = await prisma.link.findMany({
     select: {

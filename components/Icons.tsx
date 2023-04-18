@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { site } from "@/config/site";
 
 export const YandexIcon = () => (
   <svg className="h-11 w-11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +56,7 @@ export const ExternalLinkIcon = () => (
 );
 
 export const Logo = () => (
-  <Image src={"/static/logo.png"} width={565} height={759} alt="Cat Links" />
+  <Image src={"/static/logo.png"} width={565} height={759} alt={site.name} />
 );
 
 export const Spin = () => (

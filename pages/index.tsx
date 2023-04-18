@@ -1,9 +1,10 @@
-import Image from "next/image";
+import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 
 import { Logo, Spin } from "@/components/Icons";
-import Link from "next/link";
+import { site } from "@/config/site";
 
 function Home() {
   const { data: session, status } = useSession();
@@ -13,7 +14,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Котолинкус — одна ссылка для социальных сетей</title>
+        <title>{`${site.name} — одна ссылка для социальных сетей`}</title>
       </Head>
       <div className="flex flex-col sm:flex-row justify-center sm:mt-0 px-8 sm:px-18  ">
         <div className="w-full grid grid-cols px-2 mt-3 pb-16 justify-items-center content-center ">
@@ -21,7 +22,7 @@ function Home() {
             <Logo />
           </div>
           <h1 className="text-4xl text-gray-900 text-center font-bold">
-            Котолинкус — Всё в одной ссылке
+            {`${site.name} — Всё в одной ссылке`}
           </h1>
           <p className="mt-6 text-lg text-gray-600 text-center">
             Одна ссылка, которая объединяет все ваши профили в Instagram,

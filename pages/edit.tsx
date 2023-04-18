@@ -5,6 +5,7 @@ import LinkEditor from "@/components/LinkEditor";
 import UserInfo from "@/components/UserInfo";
 import AddNewLink from "@/components/AddNewLink";
 import UserInfoSkeleton from "@/components/UserInfoSkeleton";
+import { site } from "@/config/site";
 
 const fetcher = (...args: [any]) => fetch(...args).then((res) => res.json());
 
@@ -16,7 +17,7 @@ function EditPage() {
   return (
     <>
       <Head>
-        <title>Профиль — Котолинкус</title>
+        <title>{`Профиль — ${site.name}`}</title>
       </Head>
       <div className="flex flex-col items-center max-w-[800px] px-3 mx-auto">
         <UserInfo editing={true} />
