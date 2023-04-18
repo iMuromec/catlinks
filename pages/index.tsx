@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Head from "next/head";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
-import { Logo } from "@/components/Icons";
+import { Logo, Spin } from "@/components/Icons";
+import Link from "next/link";
 
 function Home() {
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
+  const authenticated = status === "authenticated" && session.user?.email;
+
   return (
     <>
       <Head>
@@ -24,10 +29,24 @@ function Home() {
           </p>
           <button
             name="Создать страницу"
-            onClick={() => signIn(null, { callbackUrl: "/edit" })}
-            className="mt-8 px-20 py-3 border gap-3 font-semibold bg-blue-500 text-white rounded-lg"
+            className="mt-8 border gap-3 font-semibold bg-blue-500 text-white rounded-lg flex relative"
           >
-            Создать
+            {loading ? (
+              <div className="px-20 py-3 min-w-[290px] flex justify-center">
+                <Spin />
+              </div>
+            ) : authenticated ? (
+              <Link href="/edit" className="px-20 py-3">
+                Личный кабинет
+              </Link>
+            ) : (
+              <div
+                onClick={() => signIn(null, { callbackUrl: "/edit" })}
+                className="px-20 py-3"
+              >
+                Создать
+              </div>
+            )}
           </button>
         </div>
         <div className="w-full grid grid-cols-2 sm:mt-12 gap-3 px-2 justify-items-center content-center">
