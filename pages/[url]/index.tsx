@@ -48,7 +48,7 @@ export async function getServerSideProps({ params }) {
     };
   }
 
-  const title = user.name ? `${user.name} | Cat Links` : "Cat Links";
+  const title = user.name ? `${user.name} — Котолинкус` : "Котолинкус";
 
   const links = await prisma.link.findMany({
     select: {

@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Cat Links - одна ссылка для социальных сетей1</title>
+        <title>Котолинкус — одна ссылка для социальных сетей</title>
       </Head>
       <div className="flex flex-col sm:flex-row justify-center sm:mt-0 px-8 sm:px-18  ">
         <div className="w-full grid grid-cols px-2 mt-3 pb-16 justify-items-center content-center ">
@@ -16,7 +16,7 @@ function Home() {
             <Logo />
           </div>
           <h1 className="text-4xl text-gray-900 text-center font-bold">
-            Всё в одной ссылке
+            Котолинкус — Всё в одной ссылке
           </h1>
           <p className="mt-6 text-lg text-gray-600 text-center">
             Одна ссылка, которая объединяет все ваши профили в Instagram,

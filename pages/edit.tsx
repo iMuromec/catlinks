@@ -16,7 +16,7 @@ function EditPage() {
   return (
     <>
       <Head>
-        <title>Профиль</title>
+        <title>Профиль — Котолинкус</title>
       </Head>
       <div className="flex flex-col items-center max-w-[800px] px-3 mx-auto">
         <UserInfo editing={true} />
