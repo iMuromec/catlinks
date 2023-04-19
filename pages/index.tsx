@@ -22,7 +22,7 @@ function Home() {
             <Logo />
           </div>
           <h1 className="text-4xl text-gray-900 text-center font-bold">
-            {`${site.name} — Всё в одной ссылке`}
+            {`${site.name} — всё в одной ссылке`}
           </h1>
           <p className="mt-6 text-lg text-gray-600 text-center">
             Одна ссылка, которая объединяет все ваши профили в Instagram,
