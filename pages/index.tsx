@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 
-import { Logo, Spin } from "@/components/Icons";
+import { Logo } from "@/components/Icons";
 import { site } from "@/config/site";
 
 function Home() {
@@ -32,22 +32,18 @@ function Home() {
             name="Создать страницу"
             className="mt-8 border gap-3 font-semibold bg-blue-500 text-white rounded-lg flex relative"
           >
-            {loading ? (
-              <div className="px-20 py-3 min-w-[290px] flex justify-center">
-                <Spin />
-              </div>
-            ) : authenticated ? (
-              <Link href="/edit" className="px-20 py-3">
-                Личный кабинет
-              </Link>
-            ) : (
+            {loading || !authenticated ? (
               <div
                 onClick={() => signIn(null, { callbackUrl: "/edit" })}
                 className="px-20 py-3"
               >
                 Создать
               </div>
-            )}
+            ) : authenticated ? (
+              <Link href="/edit" className="px-20 py-3">
+                Личный кабинет
+              </Link>
+            ) : null}
           </button>
         </div>
         <div className="w-full grid grid-cols-2 sm:mt-12 gap-3 px-2 justify-items-center content-center">
