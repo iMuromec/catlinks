@@ -41,7 +41,14 @@ export default function UserLinks({ links, image, name, description, title }) {
 export async function getServerSideProps({ params }) {
   const url = params.url;
 
-  const user = await prisma.user.findFirst({ where: { url } });
+  const user = await prisma.user.findFirst({
+    where: {
+      url: {
+        equals: url,
+        mode: "insensitive",
+      },
+    },
+  });
 
   if (!user) {
     return {
