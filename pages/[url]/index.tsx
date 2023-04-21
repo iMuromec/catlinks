@@ -68,7 +68,7 @@ export async function getServerSideProps({ params }) {
       },
     },
     orderBy: {
-      createdAt: "desc",
+      position: "desc",
     },
   });
 

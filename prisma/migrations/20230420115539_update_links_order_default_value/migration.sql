@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Link" ALTER COLUMN "order" SET DEFAULT 0,
+ALTER COLUMN "order" DROP DEFAULT;
+DROP SEQUENCE "Link_order_seq";

@@ -31,8 +31,9 @@ function EditPage() {
         <UserInfo editing={true} />
         <AddNewLink links={links} mutate={mutate} />
         <div className="mt-5 w-full">
-          {links?.map((link) => (
+          {links?.map((link, index) => (
             <LinkEditor
+              index={index}
               key={link.id}
               link={link}
               links={links}

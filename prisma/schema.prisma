@@ -13,6 +13,7 @@ model Link {
   title     String?
   url       String?
   active    Boolean  @default(true)
+  position  Int?     @default(-1) @map(name: "position")
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
   createdAt DateTime @default(now()) @map(name: "created_at")

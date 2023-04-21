@@ -15,7 +15,7 @@ export async function getLinks(
         authorId: userId,
       },
       orderBy: {
-        createdAt: "desc",
+        position: "desc",
       },
     });
     return res.status(200).json(links);
@@ -31,12 +31,19 @@ export async function createLink(
   userId: number
 ): Promise<void | NextApiResponse<Link | null>> {
   try {
+    const count = await prisma.link.count({
+      where: {
+        authorId: userId,
+      },
+    });
+
     const link = await prisma.link.create({
       data: {
         title: "",
         url: "",
         active: true,
         authorId: userId,
+        position: count,
       },
     });
     return res.status(200).json(link);
@@ -61,6 +68,30 @@ export async function updateLink(
       data: JSON.parse(req.body),
     });
     return res.status(200).json(link);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).end(error);
+  }
+}
+
+export async function updateLinks(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  userId: number
+): Promise<void | NextApiResponse<Link | null>> {
+  try {
+    const links = JSON.parse(req.body);
+
+    await prisma.$transaction(
+      links.map((link) =>
+        prisma.link.updateMany({
+          where: { id: link.id, authorId: userId },
+          data: { position: link.position },
+        })
+      )
+    );
+
+    return res.status(200).end();
   } catch (error) {
     console.error(error);
     return res.status(500).end(error);

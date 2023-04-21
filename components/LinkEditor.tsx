@@ -5,7 +5,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import DeleteConfirm from "@/components/DeleteConfirm";
 import SaveMessage from "@/components/SaveMessage";
 
-const LinkEditor = ({ link, links, mutate }) => {
+const LinkEditor = ({ index, link, links, mutate }) => {
   const [title, setTitle] = useState(link.title);
   const [url, setUrl] = useState(link.url);
   const [active, setActive] = useState(link.active);
@@ -20,8 +20,42 @@ const LinkEditor = ({ link, links, mutate }) => {
       setActive(isActive);
     }
     const res = await fetch(`/api/links?id=${link.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        title,
+        url,
+        active: isActive,
+        position: link.position,
+      }),
+    });
+
+    if (res.ok) {
+      setShowSaveMessage(true);
+    }
+  };
+
+  const moveItem = async (direction) => {
+    const newIndex = index - direction;
+
+    if (newIndex < 0 || newIndex >= links.length) {
+      return;
+    }
+
+    const updatedLinks = links.filter((_, i) => i !== index);
+    updatedLinks.splice(newIndex, 0, link);
+    updatedLinks.reverse();
+
+    const newUpdatedLinks = updatedLinks.map((link, index) => ({
+      ...link,
+      position: index,
+    }));
+    newUpdatedLinks.reverse();
+
+    mutate(newUpdatedLinks, { revalidate: false });
+
+    const res = await fetch(`/api/links`, {
       method: "PUT",
-      body: JSON.stringify({ title, url, active: isActive }),
+      body: JSON.stringify(newUpdatedLinks),
     });
 
     if (res.ok) {
@@ -40,6 +74,24 @@ const LinkEditor = ({ link, links, mutate }) => {
 
   return (
     <div className="flex justify-between w-full items-center py-2 gap-2">
+      <div className="flex flex-col gap-3">
+        {index !== 0 && (
+          <div
+            onClick={() => moveItem(1)}
+            className="cursor-pointer p-2 border border-transparent hover:border-gray-300 text-gray-600 rounded-md"
+          >
+            ↑
+          </div>
+        )}
+        {index !== links.length - 1 && (
+          <div
+            onClick={() => moveItem(-1)}
+            className="cursor-pointer p-2 border border-transparent hover:border-gray-300 text-gray-600 rounded-md"
+          >
+            ↓
+          </div>
+        )}
+      </div>
       <div
         className={`flex flex-col w-full gap-1 bg-white p-2 rounded-lg shadow-md ${
           !active && "archived"
