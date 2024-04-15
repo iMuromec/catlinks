@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className="w-full pb-5 pt-10 flex-col place-self-end flex justify-center items-center gap-1 text-sm text-gray-400">
       <Link href="/">Котолинкус — всё в одной ссылке</Link>
-      <p>
+      {/* <p>
         Исходный код на{" "}
         <a
           href="https://github.com/iMuromec/catlinks"
@@ -15,7 +15,7 @@ export default function Footer() {
           GitHub
         </a>
         .
-      </p>
+      </p> */}
     </div>
   );
 }

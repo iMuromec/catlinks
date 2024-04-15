@@ -6,10 +6,16 @@ import { signIn, useSession } from "next-auth/react";
 import { Logo } from "@/components/Icons";
 import { site } from "@/config/site";
 
-function Home() {
+function useAuth() {
   const { data: session, status } = useSession();
   const loading = status === "loading";
   const authenticated = status === "authenticated" && session.user?.email;
+
+  return { data: session, loading, authenticated };
+}
+
+function Home() {
+  const { loading, authenticated } = useAuth();
 
   return (
     <>
